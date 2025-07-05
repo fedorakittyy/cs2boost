@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Boosting Service</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #1a1a2e; 
+            color: #e0e0e0; 
+            overflow-x: hidden; 
+        }
+
+        
+        .purchase-option {
+            @apply bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 cursor-pointer transition-all duration-300;
+        }
+
+        
+        .purchase-option:hover:not(.selected) {
+            @apply bg-gray-700 ring-2 ring-blue-400;
+        }
+
+       
+        .purchase-option.selected {
+            @apply ring-4 ring-blue-500 bg-blue-700/30;
+        }
+
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        .animate-slideInRight {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        .animate-delay-500 { animation-delay: 0.5s; }
+        .animate-delay-600 { animation-delay: 0.6s; }
+        .animate-delay-700 { animation-delay: 0.7s; }
+        .animate-delay-800 { animation-delay: 0.8s; }
+
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1;
+        }
+        footer {
+            margin-top: auto; 
+            padding-bottom: 1rem; 
+        }
+
+        
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; 
+            height: 100vh; 
+            background-color: rgba(0, 0, 0, 0.9); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; 
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .video-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-overlay video {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 0; 
+            box-shadow: none; 
+        }
+
+        .video-overlay .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+            z-index: 1001; 
+        }
+
+        .video-overlay .close-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-8">
+
+    
+    <main class="flex flex-col items-center w-full max-w-6xl flex-grow">
+        
+        <header class="text-center mb-12 mt-8 md:mt-16">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-blue-400 mb-4 animate-fadeIn">CS2 Boosting</h1>
+            <p class="text-xl md:text-3xl text-gray-300 animate-fadeIn animate-delay-200">#1 CS2 Boosting Service</p>
+            <p class="text-lg md:text-xl text-gray-400 mt-2 animate-fadeIn animate-delay-300">Made & Boosted by <a href="https://steamcommunity.com/profiles/76561199477574419" target="_blank" class="text-blue-500 hover:text-blue-400 transition-colors duration-300">sleeper</a></p>
+        </header>
+
+        
+        <section class="flex flex-col md:flex-row w-full gap-8 md:gap-16 justify-center items-start">
+            
+            <div class="w-full md:w-1/2 flex flex-col gap-6 animate-slideInLeft animate-delay-400">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400 text-lg mr-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold text-lg">Bernard Fogg</span>
+                    </div>
+                    <p class="text-gray-300 italic">"so good makes me wanna get on the registery again"</p>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400 text-lg mr-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold text-lg">ROCKETMAN</span>
+                    </div>
+                    <p class="text-gray-300 italic">"cheating cheeto eater"</p>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400 text-lg mr-2">
+                            
+                            <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <span class="font-bold text-lg">nickel_</span>
+                    </div>
+                    <p class="text-gray-300 italic">"publicly advertising your illegitimate stats is crazy work to claim you're not cheating. am i just missing the point and thats the joke? whatever, im glad this comment will give you a dopamine hit since you have no real people who love you or care for you"</p>
+                </div>
+            </div>
+
+            
+            <div class="w-full md:w-1/2 flex flex-col items-end gap-6 animate-slideInRight animate-delay-500">
+                
+                <div id="option-1" class="purchase-option w-full md:w-3/4 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700" data-price="5">
+                    <h3 class="text-2xl font-bold text-blue-300">1 Game</h3>
+                    <p class="text-xl text-gray-300">$5</p>
+                </div>
+
+                
+                <div id="option-2" class="purchase-option w-full md:w-3/4 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700" data-price="25">
+                    <h3 class="text-2xl font-bold text-blue-300">5 Games</h3>
+                    <p class="text-xl text-gray-300">$25</p>
+                </div>
+
+                
+                <div id="option-3" class="purchase-option w-full md:w-3/4 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700" data-price="50">
+                    <h3 class="text-2xl font-bold text-blue-300">20 Games</h3>
+                    <p class="text-xl text-gray-300">$50</p>
+                </div>
+
+                
+                <div id="option-4" class="purchase-option w-full md:w-3/4 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700" data-price="100">
+                    <h3 class="text-2xl font-bold text-blue-300">50 Games</h3>
+                    <p class="text-xl text-gray-300">$100</p>
+                </div>
+
+                
+                <button id="purchaseButton" class="w-full md:w-3/4 mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                    Purchase
+                </button>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer class="text-center text-gray-500 text-xs animate-fadeIn animate-delay-800">
+        <p>This is a joke, no boosting services are sold as it violates the terms of Steam. Get gud scrub.</p>
+    </footer>
+
+    
+    <div id="videoOverlay" class="video-overlay">
+        <button id="closeVideo" class="close-button">&times;</button>
+        <video id="trolledVideo" controls autoplay loop playsinline>
+            <source src="trolled.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const purchaseOptions = document.querySelectorAll('.purchase-option');
+            const purchaseButton = document.getElementById('purchaseButton');
+            const videoOverlay = document.getElementById('videoOverlay');
+            const trolledVideo = document.getElementById('trolledVideo');
+            const closeVideoButton = document.getElementById('closeVideo');
+            let selectedOption = null;
+
+            
+            purchaseOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    
+                    if (selectedOption) {
+                        selectedOption.classList.remove('selected');
+                    }
+                    
+                    option.classList.add('selected');
+                    selectedOption = option;
+                });
+            });
+
+            
+            purchaseButton.addEventListener('click', () => {
+                
+                videoOverlay.classList.add('active');
+                trolledVideo.play(); 
+            });
+
+  
+            closeVideoButton.addEventListener('click', () => {
+                videoOverlay.classList.remove('active');
+                trolledVideo.pause(); 
+                trolledVideo.currentTime = 0; 
+            });
+
+
+            videoOverlay.addEventListener('click', (event) => {
+                if (event.target === videoOverlay) {
+                    videoOverlay.classList.remove('active');
+                    trolledVideo.pause();
+                    trolledVideo.currentTime = 0;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
